@@ -5,5 +5,5 @@ This is a replica of the classical Space Invaders Game, created using Pygame Zer
 
 To run the game:
 ```
-pyzrun main.py  
+pgzrun main.py  
 ```
