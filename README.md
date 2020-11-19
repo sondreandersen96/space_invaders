@@ -28,7 +28,7 @@ TODO:
 
 
 
-# Use this project 
+## Use this project 
 Feel free to clone this reposetory to simply play the game or to add more functionallity to it! 
 
 
