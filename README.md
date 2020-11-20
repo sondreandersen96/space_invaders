@@ -16,11 +16,13 @@ The game is still very much a work in progress, but some simple functionallity i
 - Create weak (low level) Enemies
 - Detect laser hits
 - Remove enemies with damage level above threshold 
-
-TODO:
 - Add a scoring system 
 - Detect game over (when at least one enemy reaches the bottom of the screen)
+
+TODO:
 - "Game Over"-screen 
+- Save highscore 
+- Add levels system 
 - Add multiple types of enemies:
 	- Some with higher damage tolerance 
 	- Make enemies with harder damage tolerance appear when the game progresses (i.e. higher levels are reached)
@@ -29,7 +31,7 @@ TODO:
 
 
 ## Use this project 
-Feel free to clone this reposetory to simply play the game or to add more functionallity to it! 
+Feel free to clone this reposetory, either to simply play the game or to add more functionallity to it! 
 
 
 

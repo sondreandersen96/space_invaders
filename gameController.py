@@ -9,7 +9,7 @@ class GameController:
         self._HEIGHT = HEIGHT # Screen height
         self._counter = 0 
         self._score = 0 
-        self._spaceship = SpaceShip('space_ship.png', 400 - 15, 525 - 15)
+        self._spaceship = SpaceShip('space_ship.png', 400 - 15, 560 - 15)
         self._lasers = []
         self._enemies = []
 
@@ -40,7 +40,7 @@ class GameController:
             enemy.move()
 
     def createEasyEnemy(self, pos_x, pos_y):
-        new_enemy = Enemy('enemy_1.png', pos_x, pos_y, 30, 30, 2) # icon, pos_x, pos_y, width, height, maxDamage
+        new_enemy = Enemy('enemy_1.png', pos_x, pos_y, 30, 30, 2, 10) # icon, pos_x, pos_y, width, height, maxDamage
         self._enemies.append(new_enemy)
 
     def createRowOfEnemies(self, nr, typeOfEnemy): # Spesify the number of enemies to be created (max 16) 
@@ -77,7 +77,10 @@ class GameController:
             for laser in self._lasers:
                 if enemy.detectHitFromLaser(laser):
                     self._lasers.remove(laser)
+                    self._score += enemy.getHitPoints()
                     enemy.hit()
+                    
+
         
     def checkStatusEnemies(self):
         enemiesToRemove = []
@@ -91,7 +94,16 @@ class GameController:
                 self._enemies.remove(enemy)
 
 
+    def detectGameOver(self): # Defined as when an enemy reaches the player 
+        for enemy in self._enemies:
+            if enemy.hasReachedPlayer():
+                return True
+        return False 
+
 
     def getCount(self):
         return self._counter
+
+    def getScore(self):
+        return self._score
     

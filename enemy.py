@@ -1,5 +1,21 @@
+'''
+This class creates enemy characters in the game. 
+
+The following characteristics can be changed for each enenmy:
+- maxDamage
+- Icon 
+- Points for taking out enemy
+    
+
+For the following points are awarded for taking out an enemy at a specific level:
+1. 10 (Easy Enemy)
+
+'''
+
+
+
 class Enemy:
-    def __init__(self, icon, pos_x, pos_y, width, height, maxDamage):
+    def __init__(self, icon, pos_x, pos_y, width, height, maxDamage, hitPoints):
         self._icon = icon 
         self._pos_x = pos_x
         self._pos_y = pos_y 
@@ -7,6 +23,7 @@ class Enemy:
         self._height = 30
         self._maxDamage = maxDamage
         self._damage = 0 
+        self._hitPoints = hitPoints
     
     def move(self):
         self._pos_y += 45
@@ -30,6 +47,15 @@ class Enemy:
     def getMaxDamage(self):
         return self._maxDamage
 
+    def hasReachedPlayer(self):
+        if self._pos_y >= 520:
+            return True
+        else:
+            return False 
+
+    def getHitPoints(self):
+        return self._hitPoints
+
+
     def render(self, screen):
         screen.blit(self._icon, (self._pos_x, self._pos_y))
-    
