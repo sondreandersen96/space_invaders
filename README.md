@@ -21,7 +21,7 @@ The game is still very much a work in progress, but some simple functionallity i
 - "Game Over"-screen 
 	- High Score Screen when a `newHighScoreEvent` event is detected
 	- Game Over Screen otherwise
-- Save highscore (the high score is simply saved in the textfile: highscore.txt)
+- Save highscore (the high score is simply saved in the textfile: `highscore.txt`)
 
 TODO:
 - Add levels system 
