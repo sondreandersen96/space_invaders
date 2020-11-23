@@ -9,8 +9,7 @@ To run the game:
 pgzrun main.py  
 ```
 
-The game is still very much a work in progress, but some simple functionallity is implemented:
-
+**The game is still very much a work in progress, but some simple functionallity is implemented:**
 - Move SpaceShip
 - Fire lasers from SpaceShip
 - Create weak (low level) Enemies
@@ -23,7 +22,7 @@ The game is still very much a work in progress, but some simple functionallity i
 	- Game Over Screen otherwise
 - Save highscore (the high score is simply saved in the textfile: `highscore.txt`)
 
-TODO:
+**TODO:**
 - Add levels system 
 - Add multiple types of enemies:
 	- Some with higher damage tolerance 
