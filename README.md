@@ -23,6 +23,7 @@ pgzrun main.py
 - Save highscore (the high score is simply saved in the textfile: `highscore.txt`)
 
 **TODO:**
+- Update UML diagram
 - Add levels system 
 - Add multiple types of enemies:
 	- Some with higher damage tolerance 
@@ -30,12 +31,12 @@ pgzrun main.py
 - Maybe add some limiation on how many shots can be fired for some unit of time - so to make the "spray and pray"-tactic less effective
 
 
-
 ## Use this project 
 Feel free to clone this reposetory, either to simply play the game or to add more functionallity to it! 
 
 
-
+## Note
+The UML-diagram has not been updated, and thus just provide an overview of the most basic functionallity of the game. I am planning on updating this diagram soon. 
 
 
 
