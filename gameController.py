@@ -1,6 +1,6 @@
 from spaceShip import SpaceShip
 from enemy import Enemy 
-
+from getHighScore import getHighScore
 
 
 class GameController:
@@ -12,6 +12,7 @@ class GameController:
         self._spaceship = SpaceShip('space_ship.png', 400 - 15, 560 - 15)
         self._lasers = []
         self._enemies = []
+        self._highScore = self._previousHighScore()
 
     def increaseCounter(self):
         self._counter += 1 
@@ -79,9 +80,8 @@ class GameController:
                     self._lasers.remove(laser)
                     self._score += enemy.getHitPoints()
                     enemy.hit()
-                    
 
-        
+
     def checkStatusEnemies(self):
         enemiesToRemove = []
         # Finding enemies to remove
@@ -106,4 +106,11 @@ class GameController:
 
     def getScore(self):
         return self._score
+
+    def _previousHighScore(self):
+        return getHighScore()
+
+    def getPreviousHighScore(self):
+        return self._highScore
+        
     

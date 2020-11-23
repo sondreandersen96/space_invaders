@@ -1,48 +1,40 @@
 from spaceShip import SpaceShip
 from gameController import GameController
+from setHighScore import setHighScore
 from random import randint
-WIDTH = 800
-HEIGHT = 600
 '''
 Run program with pgzrun main.py
 
 '''
 
 
+WIDTH = 800
+HEIGHT = 600
+
+
 # Setup
-#                                #  X         Y 
-#ship = SpaceShip('space_ship.png', 400 - 15, 525 - 15)
 game = GameController(WIDTH, HEIGHT)
 gameOver = False 
+haveTestedForHighScore = False # Global variable
+newHighScoreEvent = False # Global variable 
 
 
+
+# Pygame Zero Functions - Game Loops
 def draw():
     if not gameOver:
         inGameGraphics()
-
-
-
-
-    #screen.draw.circle([400, 550], 2, (255,255,255))
+    else:
+        gameOverScreen()
 
 def update():
-
-
-
     if not gameOver:
         inGameUpdate()
 
 
 
 
-
-
-
-
-
-
-
-
+# Game logic functions 
 def inGameGraphics():
     screen.fill((10, 10, 10))
     # Draw main ship 
@@ -55,14 +47,6 @@ def inGameGraphics():
     screen.draw.text(f'Frame Count: {game.getCount()}', [350, 10])
     screen.draw.text(f'Score: {game.getScore()}', [10,10])
     screen.draw.text(f'Level: ', [150, 10])
-
-
-
-def gameOverScreen():
-    pass
-
-
-
 
 
 def inGameUpdate():
@@ -96,7 +80,6 @@ def inGameUpdate():
         print('Game Over Event Detected')
 
 
-
     # Prototyping.......
     if keyboard.a:
         game.createRowOfEnemies(16, 1)
@@ -106,5 +89,39 @@ def inGameUpdate():
         game.shiftEnemiesOneRowDown()
 
 
+
+def gameOverScreen():
+    screen.fill((20,20,20))
+    score = game.getScore()
+    previousHighScore = game.getPreviousHighScore()
+
+    '''
+    I am using these global variables to aviod having to 
+    test for new high score on every frame after the game 
+    has ended. With this code, once a high score is detected
+    we dont need to test for a high score anymore, we just 
+    have to render the high score screen. 
+    '''
+    global haveTestedForHighScore
+    global newHighScoreEvent
+
+    if (previousHighScore < score) and (not haveTestedForHighScore):
+        newHighScoreEvent = True
+        setHighScore(score) # Saving new high score to file 
+        haveTestedForHighScore = True
+        newHighScoreEvent = True
+
+
+
+    if newHighScoreEvent: 
+        # New High Score Screen
+        screen.draw.text('NEW HIGH SCORE!', [250, 180], color=(0, 240, 0))
+        screen.draw.text(f'SCORE: {score}', [250, 220])
+        screen.draw.text(f'Previous High Score was: {previousHighScore}', [250, 260])
+        
+    else:
+        screen.draw.text('GAME OVER!', [250, 180], color=(240, 0, 0))
+        screen.draw.text(f'Score: {score}', [250, 220])
+        screen.draw.text(f'Current High Score is: {previousHighScore}', [250, 260])
 
 
