@@ -12,8 +12,6 @@ For the following points are awarded for taking out an enemy at a specific level
 
 '''
 
-
-
 class Enemy:
     def __init__(self, icon, pos_x, pos_y, width, height, maxDamage, hitPoints):
         self._icon = icon 

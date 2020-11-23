@@ -29,6 +29,7 @@ pgzrun main.py
 	- Some with higher damage tolerance 
 	- Make enemies with harder damage tolerance appear when the game progresses (i.e. higher levels are reached)
 - Maybe add some limiation on how many shots can be fired for some unit of time - so to make the "spray and pray"-tactic less effective
+- Enemies shooting back 
 
 
 ## Use this project 

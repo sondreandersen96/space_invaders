@@ -46,7 +46,7 @@ def inGameGraphics():
 
     screen.draw.text(f'Frame Count: {game.getCount()}', [350, 10])
     screen.draw.text(f'Score: {game.getScore()}', [10,10])
-    screen.draw.text(f'Level: ', [150, 10])
+    screen.draw.text(f'Level: {game.getLevel()}', [150, 10])
 
 
 def inGameUpdate():

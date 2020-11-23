@@ -9,6 +9,8 @@ class GameController:
         self._HEIGHT = HEIGHT # Screen height
         self._counter = 0 
         self._score = 0 
+        self._level = 1
+        self._nrOfEnemyRows = 0
         self._spaceship = SpaceShip('space_ship.png', 400 - 15, 560 - 15)
         self._lasers = []
         self._enemies = []
@@ -54,6 +56,8 @@ class GameController:
             if typeOfEnemy == 1: # Easy level
                 self.createEasyEnemy(pos_x, 100)
                 pos_x += space_for_one_enemy
+
+        self._nrOfEnemyRows += 1 
 
     def removeOffscreenLasers(self):
         for laser in self._lasers:
@@ -113,4 +117,9 @@ class GameController:
     def getPreviousHighScore(self):
         return self._highScore
         
-    
+    def getLevel(self):
+        return self._level
+
+    def handleLevels(self):
+        pass
+        currentLevel = self._level
