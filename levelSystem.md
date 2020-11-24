@@ -35,5 +35,5 @@ When the GameController class is initiated at the start of the game, this level 
 
 
 
-The way the game is created now, it will crash at above level 200.....
+The way the game is created now, it will crash when reaching level 201...
 
