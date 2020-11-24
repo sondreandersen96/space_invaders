@@ -15,6 +15,7 @@ class GameController:
         self._lasers = []
         self._enemies = []
         self._highScore = self._previousHighScore()
+        self._levelSystem = self._readLevelSystem() # Dictionary 
 
     def increaseCounter(self):
         self._counter += 1 
@@ -43,8 +44,17 @@ class GameController:
             enemy.move()
 
     def createEasyEnemy(self, pos_x, pos_y):
-        new_enemy = Enemy('enemy_1.png', pos_x, pos_y, 30, 30, 2, 10) # icon, pos_x, pos_y, width, height, maxDamage
+        new_enemy = Enemy('enemy_1.png', pos_x, pos_y, 30, 30, 2, 10) # icon, pos_x, pos_y, width, height, maxDamage, hitPoints
         self._enemies.append(new_enemy)
+    
+    def createMedEnemy(self, pos_x, pos_y):
+        new_enemy = Enemy('enemy_2.png', pos_x, pos_y, 30, 30, 5, 10) # icon, pos_x, pos_y, width, height, maxDamage, hitPoints
+        self._enemies.append(new_enemy)
+
+    def createHardEnemy(self, pos_x, pos_y):
+        new_enemy = Enemy('enemy_3.png', pos_x, pos_y, 30, 30, 10, 10) # icon, pos_x, pos_y, width, height, maxDamage, hitPoints
+        self._enemies.append(new_enemy)
+
 
     def createRowOfEnemies(self, nr, typeOfEnemy): # Spesify the number of enemies to be created (max 16) 
         midPoint = self._WIDTH / 2 
@@ -55,6 +65,12 @@ class GameController:
         for i in range(nr):
             if typeOfEnemy == 1: # Easy level
                 self.createEasyEnemy(pos_x, 100)
+                pos_x += space_for_one_enemy
+            elif typeOfEnemy == 2:
+                self.createMedEnemy(pos_x, 100)
+                pos_x += space_for_one_enemy
+            elif typeOfEnemy == 3:
+                self.createHardEnemy(pos_x, 100)
                 pos_x += space_for_one_enemy
 
         self._nrOfEnemyRows += 1 
@@ -121,5 +137,22 @@ class GameController:
         return self._level
 
     def handleLevels(self):
-        pass
-        currentLevel = self._level
+        self._level = (self._score // 1000) + 1
+        
+
+    def _readLevelSystem(self):
+        f = open('levelSystem.csv')
+        levelSystem = {}
+        for row in f:
+            line = row.strip().split(';')
+            levelNr = int(line[0])
+            probEnemy1 = int(line[1])
+            probEnemy2 = int(line[2])
+            probEnemy3 = int(line[3])
+
+            levelSystem[levelNr] = [probEnemy1, probEnemy2, probEnemy3]
+        f.close()
+        return levelSystem
+
+    def getLevelSystem(self):
+        return self._levelSystem

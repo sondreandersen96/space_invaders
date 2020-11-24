@@ -19,3 +19,4 @@ class Laser:
 
     def getPosAndRadius(self):
         return [self._pos_x, self._pos_y, self._radius]
+        

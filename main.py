@@ -11,14 +11,11 @@ Run program with pgzrun main.py
 WIDTH = 800
 HEIGHT = 600
 
-
 # Setup
 game = GameController(WIDTH, HEIGHT)
 gameOver = False 
 haveTestedForHighScore = False # Global variable
 newHighScoreEvent = False # Global variable 
-
-
 
 # Pygame Zero Functions - Game Loops
 def draw():
@@ -30,9 +27,6 @@ def draw():
 def update():
     if not gameOver:
         inGameUpdate()
-
-
-
 
 # Game logic functions 
 def inGameGraphics():
@@ -48,10 +42,12 @@ def inGameGraphics():
     screen.draw.text(f'Score: {game.getScore()}', [10,10])
     screen.draw.text(f'Level: {game.getLevel()}', [150, 10])
 
-
 def inGameUpdate():
     # Move Spaceship
     game.handleSpaceShipActions(keyboard)
+
+    # Handle leveling system
+    game.handleLevels()
 
     # Handle lasers
     game.moveLasers()
@@ -63,7 +59,24 @@ def inGameUpdate():
     elif game.getCount()%100 == 0:
         game.shiftEnemiesOneRowDown()
         randomNrOfEnemies = randint(2, 12)
-        game.createRowOfEnemies(randomNrOfEnemies, 1)
+
+        # Create more high level enemies as the game progresses...
+        enemyProb = randint(0, 100)
+        levelSystemDict = game.getLevelSystem()
+        level = game.getLevel()
+        
+        levelOneProb = levelSystemDict[level][0]
+        levelTwoProb = levelSystemDict[level][1] + levelOneProb
+        levelThreeProb = levelSystemDict[level][2] + levelTwoProb
+
+        if enemyProb <= levelOneProb:
+            game.createRowOfEnemies(randomNrOfEnemies, 1)
+        elif enemyProb <= levelTwoProb:
+            game.createRowOfEnemies(randomNrOfEnemies, 2)
+        else:
+            game.createRowOfEnemies(randomNrOfEnemies, 3)
+
+
 
     game.checkStatusEnemies()        
 
