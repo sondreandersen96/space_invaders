@@ -38,9 +38,10 @@ def inGameGraphics():
     game.renderLasers(screen)
     game.renderEnemies(screen)
 
-    screen.draw.text(f'Frame Count: {game.getCount()}', [350, 10])
+    #screen.draw.text(f'Frame Count: {game.getCount()}', [350, 10])  # For prototyping
     screen.draw.text(f'Score: {game.getScore()}', [10,10])
     screen.draw.text(f'Level: {game.getLevel()}', [150, 10])
+    screen.draw.text(f'High Score: {game.getPreviousHighScore()}', [640, 10])
 
 def inGameUpdate():
     # Move Spaceship

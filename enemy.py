@@ -31,7 +31,7 @@ class Enemy:
         laser_pos_y = laser.getPosAndRadius()[1]
         laser_radius = laser.getPosAndRadius()[2]
 
-        if (laser_pos_x - laser_radius >= self._pos_x) and (laser_pos_x + laser_radius <= self._pos_x + self._width):
+        if (laser_pos_x >= self._pos_x) and (laser_pos_x  <= self._pos_x + self._width):
             if (self._pos_y + self._height >= laser_pos_y + 2):
                 return True 
         return False 

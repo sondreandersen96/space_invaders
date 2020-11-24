@@ -28,6 +28,8 @@ pgzrun main.py
 	- Make enemies with harder damage tolerance appear when the game progresses (i.e. higher levels are reached)
 
 **TODO:**
+- Add level up graphics
+	- A level up message in the info bar at the top displays "LEVEL UP!" for ~2 seconds (use frame count to measure time)
 - Update UML diagram
 - Maybe add some limiation on how many shots can be fired for some unit of time - so to make the "spray and pray"-tactic less effective
 - Enemies shooting back 
