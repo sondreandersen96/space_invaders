@@ -11,7 +11,7 @@ This is controlled by the GameController instance function `handleLevels()`.
 ## The Nature of the Level System 
 Three types of enemies exist in this game.
 
-As the player moves up the levels of the game, a higher probability is assigned to high level enemies apoearing. The exact probabilities are described in the file "levelSystem.csv", which is the file the game controller used to find the probability of what type of enemy is created on the new row. 
+As the player moves up the levels of the game, a higher probability is assigned to high level enemies appearing. The exact probabilities are described in the file "levelSystem.csv", which is the file the game controller uses to find the probability of what type of enemy is created on the new row. 
 
 
 | Enemy Level | Max Damage | Image File  |
