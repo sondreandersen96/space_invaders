@@ -2,7 +2,7 @@
 
 This is a replica of the classical Space Invaders Game, created using Pygame Zero, with an object oriented programming approach.
 
-![Demo Image](demo_image1.png)
+![Demo Image](images/demo_image.png)
 
 To run the game:
 ```
