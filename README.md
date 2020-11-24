@@ -9,7 +9,7 @@ To run the game:
 pgzrun main.py  
 ```
 
-**The game is still very much a work in progress, but some simple functionallity is implemented:**
+**As of now the following functionallity is implemented:**
 - Move SpaceShip
 - Fire lasers from SpaceShip
 - Create weak (low level) Enemies
