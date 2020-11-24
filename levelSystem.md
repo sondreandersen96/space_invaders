@@ -3,7 +3,7 @@
 
 
 ## Moving up the level system 
-The play moves up one level for each 1000 points recieved. 
+The player moves up one level for each 1000 points recieved. 
 
 This is controlled by the GameController instance function `handleLevels()`.
 
