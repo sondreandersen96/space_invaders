@@ -21,7 +21,7 @@ pgzrun main.py
 	- High Score Screen when a `newHighScoreEvent` event is detected
 	- Game Over Screen otherwise
 - Save highscore (the high score is simply saved in the textfile: `highscore.txt`)
-- Add levels system 
+- Add levels system ([read more about level system here](github.com/sondreandersen/space_invaders/levelSystem.md))
 	- For every 1000 points - move up one level 
 - Add multiple types of enemies:
 	- Some with higher damage tolerance 
