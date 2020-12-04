@@ -4,7 +4,16 @@ This is a replica of the classical Space Invaders Game, created using Pygame Zer
 
 ![Demo Image](images/demo_image.png)
 
-To run the game:
+**To run the game:**
+
+1. Make sure you have installed Pygame Zero, if not install it by running:
+
+```
+pip3 install pgzero
+```
+
+2. Run the game with the following command: 
+
 ```
 pgzrun main.py  
 ```
